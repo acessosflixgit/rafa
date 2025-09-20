@@ -1,0 +1,407 @@
+/* Importando fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap');
+
+* { 
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif; 
+}
+
+body { 
+    margin: 0; 
+    padding: 0; 
+    background: #f5f6fa; 
+}
+
+.header-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Estilo do subtítulo */
+.subtitulo {
+    background-color: #2008faec;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .subtitulo {
+        font-size: 1rem;
+    }
+}
+
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .checkout-container {
+        flex-direction: row;
+    }
+}
+
+.checkout-left, .checkout-right {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.checkout-left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.checkout-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+fieldset { 
+    border: none; 
+    margin: 0; 
+    padding: 0; 
+}
+
+legend { 
+    font-size: 1rem; 
+    font-weight: 600; 
+    color: #6b7280;
+    margin-bottom: 10px; 
+}
+
+/* FORMULÁRIO EM DUAS COLUNAS */
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+    row-gap: 12px;
+}
+
+@media (min-width: 640px) {
+    .form-group { grid-template-columns: 1fr 1fr; }
+}
+
+.form-group .field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group .field label { 
+    margin-bottom: 6px; 
+    color: #6c757d; 
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-group .field input { 
+    height: 42px;
+    padding: 10px 12px; 
+    border: 1px solid #e5e7eb; 
+    border-radius: 8px; 
+    background: #f8fafc;
+    color: #111827;
+}
+
+.form-group .field input::placeholder {
+    color: #cbd5e1;
+}
+
+.form-group .field input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: #ffffff;
+}
+
+/* Bloco de pagamento como section (sem fieldset/legend) */
+.pagamento {
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.pagamento-title {
+    margin: 0 0 14px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+/* Centralização do bloco de opções */
+.pagamento .options-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.payment-option {
+    border: 2px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 10px 14px;
+    background: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.payment-option:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.payment-option img { 
+    height: 28px; 
+}
+
+/* Oculta o input e usa o estado :has() para destacar quando selecionado */
+.payment-option input { 
+    display: none; 
+}
+
+/* Fallback: aplicar classe via JS se necessário */
+.payment-option.selected,
+.payment-optioninput:checked {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.25);
+}
+
+.pagamento p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+.offers { 
+    margin: 15px 0; 
+}
+
+.offers .title { 
+    font-size: 0.95rem; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+
+.offers-list {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.offer-card {
+    flex: 0 0 280px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    background: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.offer-logo {
+    width: 100%;
+    max-width: 240px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.offer-info {
+    text-align: center;
+}
+
+.offer-info .name { 
+    font-weight: bold; 
+}
+
+.offer-info .price { 
+    color: #27ae60; 
+    font-size: 1.1rem; 
+    margin-top: 5px; 
+}
+
+.offer-card button {
+    background: #ff7f50;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.offer-note {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.btn-generate {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.cart-summary h2 { 
+    margin: 0 0 10px; 
+    font-size: 1.2rem; 
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.item-info .label { 
+    font-size: 0.95rem; 
+    color: #333; 
+}
+
+.item-info .sub { 
+    font-size: 0.85rem; 
+    color: #666; 
+}
+
+.item-qty {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.item-qty button {
+    border: 1px solid #ccc;
+    background: #fff;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.item-price { 
+    font-weight: bold; 
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.secure-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.warning img { 
+    width: 20px; 
+    margin-top: 3px; 
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-logo {
+  width: 28px;     
+  height: 28px;
+  object-fit: contain;
+}
+
+.pix-display-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #pix-qr-code {
+    max-width: 280px;
+    margin: 15px auto;
+    display: block;
+  }
+  
+  #pix-copy-paste {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.9em;
+    background-color: #f4f4f4;
+  }
+  
+  #copy-pix-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  #payment-status {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .offer-card button[disabled] {
+    opacity: .9;
+  }
+  
